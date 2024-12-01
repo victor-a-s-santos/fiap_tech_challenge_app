@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FIAP.TechChallenge.Api</name>
+    </assembly>
+    <members>
+        <member name="M:FIAP.TechChallenge.Api.Controllers.CustomerController.Get(System.Int32,System.Int32,System.String,System.Boolean)">
+            <summary>
+            Realiza a consulta paginada de clientes
+            </summary>
+            <param name="page">Página atual</param>
+            <param name="take">Quantidade de registros por página</param>
+            <param name="order_property">Propriedade de ordenação</param>
+            <param name="order_desc">Sentido da ordenação (desc)</param>
+        </member>
+        <member name="M:FIAP.TechChallenge.Api.Controllers.CustomerController.Get(System.String)">
+            <summary>
+            Realiza a consulta de um cliente por código
+            </summary>
+            <param name="id">Código do cliente</param>
+        </member>
+        <member name="M:FIAP.TechChallenge.Api.Controllers.CustomerController.GetByDocument(System.String)">
+            <summary>
+            Realiza a consulta do cliente por CPF
+            </summary>
+            <param name="document">CPF do cliente</param>
+        </member>
+        <member name="M:FIAP.TechChallenge.Api.Controllers.CustomerController.Post(FIAP.TechChallenge.Application.ViewModels.CustomerRequestViewModel)">
+            <summary>
+            Realiza o cadastro de um novo cliente
+            </summary>
+            <param name="viewModel">Dados do cliente</param>
+        </member>
+        <member name="M:FIAP.TechChallenge.Api.Controllers.CustomerController.Put(FIAP.TechChallenge.Application.ViewModels.CustomerRequestViewModel)">
+            <summary>
+            Realiza a atualização de um cliente
+            </summary>
+            <param name="viewModel">Dados do cliente</param>
+        </member>
+        <member name="M:FIAP.TechChallenge.Api.Controllers.CustomerController.Delete(System.String)">
+            <summary>
+            Realiza a exclusão de um cliente
+            </summary>
+            <param name="id">Código do cliente</param>
+        </member>
+        <member name="M:FIAP.TechChallenge.Api.Controllers.OrderController.GetOrders">
+            <summary>
+            Realiza a consulta do pedidos
+            </summary>
+        </member>
+        <member name="M:FIAP.TechChallenge.Api.Controllers.OrderController.Get(System.String)">
+            <summary>
+            Realiza a consulta de um pedido por código
+            </summary>
+            <param name="id">Código do pedido</param>
+        </member>
+        <member name="M:FIAP.TechChallenge.Api.Controllers.OrderController.GetByCustomerId(System.String,System.Int32,System.Int32,System.String,System.Boolean)">
+            <summary>
+            Realiza a consulta paginada dos pedidos por código do cliente
+            </summary>
+            <param name="customerId">Código do cliente</param>
+            <param name="page">Página atual</param>
+            <param name="take">Quantidade de registros por página</param>
+            <param name="order_property">Propriedade de ordenação</param>
+            <param name="order_desc">Sentido da ordenação (desc)</param>
+        </member>
+        <member name="M:FIAP.TechChallenge.Api.Controllers.OrderController.Post(FIAP.TechChallenge.Application.ViewModels.OrderRequestViewModel)">
+            <summary>
+            Realiza o cadastro de um novo pedido
+            </summary>
+            <param name="viewModel">Dados do cliente</param>
+        </member>
+        <member name="M:FIAP.TechChallenge.Api.Controllers.OrderController.Put(FIAP.TechChallenge.Application.ViewModels.OrderRequestViewModel)">
+            <summary>
+            Realiza a atualização de um pedido
+            </summary>
+            <param name="viewModel">Dados do cliente</param>
+        </member>
+        <member name="M:FIAP.TechChallenge.Api.Controllers.OrderController.Delete(System.String)">
+            <summary>
+            Realiza a exclusão de um pedido
+            </summary>
+            <param name="id">Código do pedido</param>
+        </member>
+        <member name="M:FIAP.TechChallenge.Api.Controllers.ProductController.Get(System.String)">
+            <summary>
+            Realiza a consulta dos produtos por categoria
+            </summary>
+            <param name="category">Categoria do produto (Lanche, Acompanhamento, Bebida ou Sobremesa)</param>
+        </member>
+        <member name="M:FIAP.TechChallenge.Api.Controllers.ProductController.Post(FIAP.TechChallenge.Application.ViewModels.ProductViewModel)">
+            <summary>
+            Realiza o cadastro de um novo produto
+            </summary>
+            <param name="viewModel">Dados do produto</param>
+        </member>
+        <member name="M:FIAP.TechChallenge.Api.Controllers.ProductController.Put(FIAP.TechChallenge.Application.ViewModels.ProductViewModel)">
+            <summary>
+            Realiza a atualização de um produto
+            </summary>
+            <param name="viewModel">Dados do produto</param>
+        </member>
+        <member name="M:FIAP.TechChallenge.Api.Controllers.ProductController.Delete(System.String)">
+            <summary>
+            Realiza a exclusão de um produto
+            </summary>
+            <param name="id">Código do produto</param>
+        </member>
+    </members>
+</doc>
