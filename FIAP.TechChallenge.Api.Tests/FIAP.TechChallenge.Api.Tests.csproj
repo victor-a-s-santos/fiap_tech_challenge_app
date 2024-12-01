@@ -26,10 +26,12 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\src\FIAP.TechChallenge.Api\FIAP.TechChallenge.Api.csproj" />
-      <ProjectReference Include="..\..\src\FIAP.TechChallenge.Application\FIAP.TechChallenge.Application.csproj" />
-      <ProjectReference Include="..\..\src\FIAP.TechChallenge.Api\FIAP.TechChallenge.Api.csproj" />
-      <ProjectReference Include="..\..\src\FIAP.TechChallenge.Application\FIAP.TechChallenge.Application.csproj" />
+      <ProjectReference Include="..\FIAP.TechChallenge.Api\FIAP.TechChallenge.Api.csproj" />
+      <ProjectReference Include="..\FIAP.TechChallenge.Application\FIAP.TechChallenge.Application.csproj" />
+      <ProjectReference Include="..\FIAP.TechChallenge.Api\FIAP.TechChallenge.Api.csproj" />
+      <ProjectReference Include="..\FIAP.TechChallenge.Application\FIAP.TechChallenge.Application.csproj" />
+      <ProjectReference Include="..\FIAP.TechChallenge.Api\FIAP.TechChallenge.Api.csproj" />
+      <ProjectReference Include="..\FIAP.TechChallenge.Application\FIAP.TechChallenge.Application.csproj" />
     </ItemGroup>
 
 </Project>

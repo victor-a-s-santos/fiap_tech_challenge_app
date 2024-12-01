@@ -19,8 +19,9 @@
   </ItemGroup>
 
    <ItemGroup>
-    <ProjectReference Include="..\..\src\FIAP.TechChallenge.Domain\FIAP.TechChallenge.Domain.csproj" />
-    <ProjectReference Include="..\..\src\FIAP.TechChallenge.Domain\FIAP.TechChallenge.Domain.csproj" />
+    <ProjectReference Include="..\FIAP.TechChallenge.Domain\FIAP.TechChallenge.Domain.csproj" />
+    <ProjectReference Include="..\FIAP.TechChallenge.Domain\FIAP.TechChallenge.Domain.csproj" />
+    <ProjectReference Include="..\FIAP.TechChallenge.Domain\FIAP.TechChallenge.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>

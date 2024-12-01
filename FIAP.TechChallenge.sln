@@ -3,27 +3,27 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FIAP.TechChallenge.Domain", "src\FIAP.TechChallenge.Domain\FIAP.TechChallenge.Domain.csproj", "{4AC3359C-D8A7-42B5-A084-D32C6E405227}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FIAP.TechChallenge.Domain", "FIAP.TechChallenge.Domain\FIAP.TechChallenge.Domain.csproj", "{4AC3359C-D8A7-42B5-A084-D32C6E405227}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FIAP.TechChallenge.Infrastructure", "src\FIAP.TechChallenge.Infrastructure\FIAP.TechChallenge.Infrastructure.csproj", "{8D0A4060-747A-4D82-83FA-6C2F029809EA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FIAP.TechChallenge.Infrastructure", "FIAP.TechChallenge.Infrastructure\FIAP.TechChallenge.Infrastructure.csproj", "{8D0A4060-747A-4D82-83FA-6C2F029809EA}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FIAP.TechChallenge.Application", "src\FIAP.TechChallenge.Application\FIAP.TechChallenge.Application.csproj", "{52E3969C-2BBE-49C1-A96E-84837F945FE5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FIAP.TechChallenge.Application", "FIAP.TechChallenge.Application\FIAP.TechChallenge.Application.csproj", "{52E3969C-2BBE-49C1-A96E-84837F945FE5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FIAP.TechChallenge.IoC", "src\FIAP.TechChallenge.IoC\FIAP.TechChallenge.IoC.csproj", "{D5A51C59-C8C6-42C9-9B7F-E86718AFC81C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FIAP.TechChallenge.IoC", "FIAP.TechChallenge.IoC\FIAP.TechChallenge.IoC.csproj", "{D5A51C59-C8C6-42C9-9B7F-E86718AFC81C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FIAP.TechChallenge.Api", "src\FIAP.TechChallenge.Api\FIAP.TechChallenge.Api.csproj", "{AD08BAB4-8EAF-4E8B-9747-256973F74E3B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FIAP.TechChallenge.Api", "FIAP.TechChallenge.Api\FIAP.TechChallenge.Api.csproj", "{AD08BAB4-8EAF-4E8B-9747-256973F74E3B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Crosscutting", "Crosscutting", "{BFD31437-1AD0-4CC8-B374-D8CDBB050705}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FIAP.Crosscutting.Domain", "src\FIAP.Crosscutting.Domain\FIAP.Crosscutting.Domain.csproj", "{1C3B2A5C-909D-4307-BD3A-1DDC398181B7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FIAP.Crosscutting.Domain", "FIAP.Crosscutting.Domain\FIAP.Crosscutting.Domain.csproj", "{1C3B2A5C-909D-4307-BD3A-1DDC398181B7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FIAP.Crosscutting.Infrastructure", "src\FIAP.Crosscutting.Infrastructure\FIAP.Crosscutting.Infrastructure.csproj", "{05FEC6C6-8625-4F7C-A011-BD138C5031F3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FIAP.Crosscutting.Infrastructure", "FIAP.Crosscutting.Infrastructure\FIAP.Crosscutting.Infrastructure.csproj", "{05FEC6C6-8625-4F7C-A011-BD138C5031F3}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{4F640788-008D-4F83-9F84-E9563A761C45}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FIAP.TechChallenge.Domain.Tests", "test\FIAP.TechChallenge.Domain.Tests\FIAP.TechChallenge.Domain.Tests.csproj", "{EB3F915F-1A9A-40AC-8C76-9525891361B1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FIAP.TechChallenge.Domain.Tests", "FIAP.TechChallenge.Domain.Tests\FIAP.TechChallenge.Domain.Tests.csproj", "{EB3F915F-1A9A-40AC-8C76-9525891361B1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FIAP.TechChallenge.Api.Tests", "test\FIAP.TechChallenge.Api.Tests\FIAP.TechChallenge.Api.Tests.csproj", "{73FEB219-1F0D-42BB-8163-AF55716B3535}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FIAP.TechChallenge.Api.Tests", "FIAP.TechChallenge.Api.Tests\FIAP.TechChallenge.Api.Tests.csproj", "{73FEB219-1F0D-42BB-8163-AF55716B3535}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

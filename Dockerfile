@@ -4,8 +4,8 @@ EXPOSE 6000
 
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /src
-COPY ["./src/FIAP.TechChallenge.Api/FIAP.TechChallenge.Api.csproj", "./FIAP.TechChallenge.Api/"]
-RUN dotnet restore "./FIAP.TechChallenge.Api/FIAP.TechChallenge.Api.csproj"
+COPY ["FIAP.TechChallenge.Api/FIAP.TechChallenge.Api.csproj", "FIAP.TechChallenge.Api/"]
+RUN dotnet restore "FIAP.TechChallenge.Api/FIAP.TechChallenge.Api.csproj"
 COPY . .
 WORKDIR "/src/FIAP.TechChallenge.Api"
 RUN dotnet build "FIAP.TechChallenge.Api.csproj" -c Release -o /app/build
