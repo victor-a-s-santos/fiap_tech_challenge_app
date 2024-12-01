@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FIAP.Crosscutting.Domain</name>
+    </assembly>
+    <members>
+        <member name="P:FIAP.Crosscutting.Domain.Helpers.Pagination.PagedResult`1.Results">
+            <summary>
+            Registros paginados
+            </summary>
+        </member>
+        <member name="P:FIAP.Crosscutting.Domain.Helpers.Pagination.PagedResult`1.ResultCount">
+            <summary>
+            Total de registros da consulta
+            </summary>
+        </member>
+        <member name="P:FIAP.Crosscutting.Domain.Helpers.Pagination.PagedResultBase.CurrentPage">
+            <summary>
+            Página atual
+            </summary>
+        </member>
+        <member name="P:FIAP.Crosscutting.Domain.Helpers.Pagination.PagedResultBase.PageCount">
+            <summary>
+            Total de registros retornados por página
+            </summary>
+        </member>
+        <member name="P:FIAP.Crosscutting.Domain.Helpers.Pagination.PagedResultBase.PageSize">
+            <summary>
+            Total de registros solicitados por página
+            </summary>
+        </member>
+        <member name="P:FIAP.Crosscutting.Domain.Helpers.Pagination.PagedResultBase.TotalRecords">
+            <summary>
+            Total de registros cadastrados
+            </summary>
+        </member>
+        <member name="P:FIAP.Crosscutting.Domain.Helpers.Pagination.PagedResultBase.FirstRecordOnPage">
+            <summary>
+            Índice do primeiro registro da página
+            </summary>
+        </member>
+        <member name="P:FIAP.Crosscutting.Domain.Helpers.Pagination.PagedResultBase.LastRecordOnPage">
+            <summary>
+            Índice do último registro da página
+            </summary>
+        </member>
+    </members>
+</doc>

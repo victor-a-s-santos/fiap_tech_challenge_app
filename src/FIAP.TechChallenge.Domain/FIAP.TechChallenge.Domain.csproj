@@ -1,0 +1,38 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="EventHandlers\" />
+    <Folder Include="Events\" />
+    <Folder Include="Entities\" />
+    <Folder Include="Behaviours\" />
+    <Folder Include="CommandHandlers\Order\" />
+    <Folder Include="Commands\Order\" />
+    <Folder Include="DataTransferObjects\Order\" />
+    <Folder Include="Validations\Order\" />
+    <Folder Include="Interfaces\Repositories\Order\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.1" />
+    <PackageReference Include="FluentValidation" Version="11.7.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FIAP.Crosscutting.Domain\FIAP.Crosscutting.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="CommandHandlers\Order\" />
+    <None Remove="Commands\Order\" />
+    <None Remove="DataTransferObjects\Order\" />
+    <None Remove="Validations\Order\" />
+    <None Remove="Interfaces\Repositories\Order\" />
+    <None Remove="Queries\Order\" />
+    <None Remove="QueryHandlers\Order\" />
+  </ItemGroup>
+</Project>

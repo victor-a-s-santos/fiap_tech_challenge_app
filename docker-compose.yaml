@@ -1,0 +1,27 @@
+﻿version: '3.9'
+
+services:
+  app:
+    build:
+      context: .    
+      dockerfile: Dockerfile
+    ports:
+      - "8081:80"
+    networks:
+      - fiap-network
+    depends_on:
+      - sql-server    
+  
+  sql-server:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    networks:
+      - fiap-network
+    environment:
+      SA_PASSWORD: Dq%KYBS4ZN+q>uuuwbD@kstpL
+      ACCEPT_EULA: Y
+    ports:
+      - "1433:1433"
+
+networks:
+  fiap-network:
+    driver: bridge
