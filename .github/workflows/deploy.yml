@@ -29,7 +29,7 @@ jobs:
 
     - name: Configure kubectl for EKS
       run: |
-        aws eks update-kubeconfig --name fiap-eks-cluster --region us-east-1
+        aws eks update-kubeconfig --name fiap-eks--mC1Wnnya --region us-east-1
 
     - name: Validate Kubernetes Files
       run: |
