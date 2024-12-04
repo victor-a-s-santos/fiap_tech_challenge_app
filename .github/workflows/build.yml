@@ -5,6 +5,7 @@ on:
       - main
   pull_request:
     types: [opened, synchronize, reopened]
+
 jobs:
   build:
     name: Build and analyze
@@ -15,15 +16,18 @@ jobs:
         with:
           java-version: 17
           distribution: 'zulu'
+
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+
       - name: Cache SonarQube Cloud packages
         uses: actions/cache@v4
         with:
           path: ~\sonar\cache
           key: ${{ runner.os }}-sonar
           restore-keys: ${{ runner.os }}-sonar
+
       - name: Cache SonarQube Cloud scanner
         id: cache-sonar-scanner
         uses: actions/cache@v4
@@ -31,16 +35,20 @@ jobs:
           path: .\.sonar\scanner
           key: ${{ runner.os }}-sonar-scanner
           restore-keys: ${{ runner.os }}-sonar-scanner
+
       - name: Install SonarQube Cloud scanner
         if: steps.cache-sonar-scanner.outputs.cache-hit != 'true'
         shell: powershell
         run: |
           New-Item -Path .\.sonar\scanner -ItemType Directory
           dotnet tool update dotnet-sonarscanner --tool-path .\.sonar\scanner
+
       - name: Install dotnet-coverage
         run: dotnet tool install -g dotnet-coverage
+
       - name: Add dotnet tools to PATH
         run: echo "PATH=C:\\Users\\runneradmin\\.dotnet\\tools;%PATH%" >> $GITHUB_ENV
+
       - name: Build and analyze
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -49,16 +57,25 @@ jobs:
         run: |
           .\.sonar\scanner\dotnet-sonarscanner begin /k:"victor-a-s-santos_fiap_tech_challenge_app" /o:"victor-a-s-santos" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.cs.vscoveragexml.reportsPaths="coverage.xml"
           dotnet build --no-incremental
-          dotnet-coverage collect "dotnet test" -f xml -o "coverage.xml"
+          dotnet test --collect:"Code Coverage" --results-directory TestResults
+          $coveragePath = Get-ChildItem -Path TestResults -Recurse -Filter "coverage.cobertura.xml" | Select-Object -ExpandProperty FullName -First 1
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
-      - name: Save Coverage Percentage
-        run: |
-          COVERAGE=$(grep -oP '(?<=<coverage>)[^<]+' coverage.xml)
-          echo "Coverage percentage: $COVERAGE"
-          echo $COVERAGE > coverage.txt
 
-      - name: Upload Coverage Artifact
+      - name: Extract Coverage Percentage
+        shell: pwsh
+        run: |
+          $coverageXml = Get-Content "TestResults/coverage.cobertura.xml"
+          $coverageMatch = Select-String -InputObject $coverageXml -Pattern '(?<=<coverage>)[^<]+'
+          if ($coverageMatch) {
+              $coverage = $coverageMatch.Matches.Value
+              echo "Coverage percentage: $coverage"
+              echo "coverage=$coverage" >> $env:GITHUB_ENV
+          } else {
+              Write-Error "Coverage percentage not found in coverage file."
+          }
+
+      - name: Save Coverage Artifact
         uses: actions/upload-artifact@v3
         with:
           name: coverage
-          path: coverage.txt
+          path: TestResults/coverage.cobertura.xml
