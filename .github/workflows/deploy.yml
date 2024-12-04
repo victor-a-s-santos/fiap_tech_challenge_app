@@ -3,7 +3,7 @@ name: Deploy to EKS
 on:
   workflow_run:
     workflows:
-      - CI Pipeline with SonarQube
+      - SonarQube Cloud
     types:
       - completed
 
