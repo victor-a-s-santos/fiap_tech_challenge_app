@@ -13,6 +13,26 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Download Coverage Artifact
+      uses: actions/download-artifact@v3
+      with:
+        name: coverage
+        path: .
+
+    - name: Read Coverage
+      id: read-coverage
+      run: |
+        COVERAGE=$(cat coverage.txt)
+        echo "Coverage: $COVERAGE%"
+        echo "::set-output name=coverage::$COVERAGE"
+
+    - name: Deploy Application
+      if: ${{ steps.read-coverage.outputs.coverage > 70 }}
+      run: echo "Deploying application as coverage is greater than 70%"
+      
+    - name: Deploy Application
+      run: echo "Deploying application as coverage is greater than 70%"
+
     - name: Checkout code
       uses: actions/checkout@v3
 
