@@ -58,20 +58,28 @@ jobs:
           .\.sonar\scanner\dotnet-sonarscanner begin /k:"victor-a-s-santos_fiap_tech_challenge_app" /o:"victor-a-s-santos" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.cs.vscoveragexml.reportsPaths="coverage.xml"
           dotnet build --no-incremental
           dotnet test --collect:"Code Coverage" --results-directory TestResults
-          $coveragePath = Get-ChildItem -Path TestResults -Recurse -Filter "coverage.cobertura.xml" | Select-Object -ExpandProperty FullName -First 1
+          # Verifique se o arquivo de cobertura existe
+          $coveragePath = Get-ChildItem -Path "TestResults" -Recurse -Filter "coverage.cobertura.xml" | Select-Object -ExpandProperty FullName -First 1
+          if (-not $coveragePath) {
+            Write-Error "Cobertura de teste não foi gerada ou o arquivo não foi encontrado."
+            exit 1
+          }
+          Write-Host "Caminho do arquivo de cobertura: $coveragePath"
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
 
       - name: Extract Coverage Percentage
         shell: pwsh
         run: |
-          $coverageXml = Get-Content "$coveragePath"
-          $coverageMatch = Select-String -InputObject $coverageXml -Pattern '(?<=<coverage>)[^<]+'
-          if ($coverageMatch) {
+          if ($coveragePath) {
+            $coverageXml = Get-Content "$coveragePath"
+            $coverageMatch = Select-String -InputObject $coverageXml -Pattern '(?<=<coverage>)[^<]+'
+            if ($coverageMatch) {
               $coverage = $coverageMatch.Matches.Value
               echo "Coverage percentage: $coverage"
-              echo "coverage=$coverage" >> $GITHUB_ENV
-          } else {
+              echo "coverage=$coverage" >> $env:GITHUB_ENV
+            } else {
               Write-Error "Coverage percentage not found in coverage file."
+            }
           }
 
       - name: Save Coverage Artifact
