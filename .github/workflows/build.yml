@@ -9,6 +9,8 @@ jobs:
   build:
     name: Build and analyze
     runs-on: windows-latest
+    outputs:
+        coverage: ${{ steps.extract-coverage.outputs.coverage }}
     steps:
       - name: Set up JDK 17
         uses: actions/setup-java@v4
@@ -51,3 +53,10 @@ jobs:
           dotnet build --no-incremental
           dotnet-coverage collect "dotnet test" -f xml -o "coverage.xml"
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
+
+      - name: Extract Coverage from SonarQube
+        id: extract-coverage
+        run: |
+          coverage=$(curl -s -u ${{ secrets.SONAR_TOKEN }}: https://sonarcloud.io/api/measures/component?componentKey=victor-a-s-santos_fiap_tech_challenge_app&metricKeys=coverage | jq '.component.measures[0].value')
+          echo "Coverage: $coverage%"
+          echo "::set-output name=coverage::$coverage"
