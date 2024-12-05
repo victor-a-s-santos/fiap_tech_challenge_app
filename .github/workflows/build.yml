@@ -55,17 +55,18 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         shell: powershell
         run: |
-          .\.sonar\scanner\dotnet-sonarscanner begin /k:"victor-a-s-santos_fiap_tech_challenge_app" /o:"victor-a-s-santos" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.cs.vscoveragexml.reportsPaths="coverage.xml"
+          .\.sonar\scanner\dotnet-sonarscanner begin /k:"victor-a-s-santos_fiap_tech_challenge_app" /o:"victor-a-s-santos" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.cs.vscoveragexml.reportsPaths="TestResults\coverage.xml"
           dotnet build --no-incremental
           dotnet test --collect:"Code Coverage" --results-directory TestResults
-          # Verifique se o arquivo de cobertura existe
-          $coveragePath = Get-ChildItem -Path "TestResults" -Recurse -Filter "coverage.cobertura.xml" | Select-Object -ExpandProperty FullName -First 1
+          # Converter cobertura para formato XML, se necessário
+          $coveragePath = Get-ChildItem -Path "TestResults" -Recurse -Filter "coverage.xml" | Select-Object -ExpandProperty FullName -First 1
           if (-not $coveragePath) {
             Write-Error "Cobertura de teste não foi gerada ou o arquivo não foi encontrado."
             exit 1
           }
           Write-Host "Caminho do arquivo de cobertura: $coveragePath"
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
+
 
       - name: Extract Coverage Percentage
         shell: pwsh
